@@ -1,7 +1,6 @@
 /*
  * Create a list that holds all of your cards
  */
-// const iconsArray = Array.prototype.slice.call(document.querySelectorAll('.card .fa'));
 const icons = ['bicycle', 'bicycle', 'leaf', 'leaf', 'cube', 'cube', 'anchor', 'anchor', 'paper-plane-o', 'paper-plane-o', 'bolt', 'bolt', 'bomb', 'bomb', 'diamond', 'diamond'];
 const deck = document.querySelector('.deck');
 
@@ -54,9 +53,9 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-
+// matching cards logic
 let openCards = [];
-const cards = deck.getElementsByTagName("li");
+const cards = deck.getElementsByTagName('li');
 
 function cardOpen() {
  	this.className = "card open show";
@@ -64,6 +63,7 @@ function cardOpen() {
  	if (openCards.length == 2) {
  		compareCards();
  	}
+ 	moveCounter();
  }
 
 function compareCards() {
@@ -91,3 +91,30 @@ function cardNotMatch() {
 		}
 	}
 }
+
+// move counter
+const scorePanel = document.querySelector('.score-panel');
+const stars = scorePanel.getElementsByTagName("li");
+const moves = scorePanel.querySelector('.moves');
+let clickCount = 0;
+
+function moveCounter() {
+	clickCount ++;
+	 	if (clickCount == 15) {
+	 		stars[0].style.visibility = 'hidden';
+	 		moves.innerHTML = "2 moves";
+	 	} else if (clickCount == 25) {
+	 		stars[0, 1].style.visibility = 'hidden';
+	 		moves.innerHTML = "1 move";
+	 	} else if (clickCount == 40){
+	 		stars[0, 1, 2].style.visibility = 'hidden';
+	 		moves.innerHTML = "0 moves";
+	 		setTimeout(gameOver, 500);
+	 	}
+}
+
+function gameOver() {
+	alert("GAME OVER!");
+}
+
+// timer
