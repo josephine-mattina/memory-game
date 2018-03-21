@@ -12,7 +12,7 @@ const deck = document.querySelector('.deck');
  *   - add each card's HTML to the page
  */
 function makeCards() {
-	const shuffledCards = shuffle(icons);
+	const shuffledCards = shuffle(icons); //insert shuffle function
 
 	for (let i = 0; i < shuffledCards.length; i++) {
 		const card = document.createElement("li");
@@ -55,11 +55,39 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-
-//console.log(document.querySelectorAll('.card'));
-
+let openCards = [];
+const cards = deck.getElementsByTagName("li");
 
 function cardOpen() {
+ 	this.className = "card open show";
+ 	openCards.push(this.innerHTML);
+ 	if (openCards.length == 2) {
+ 		compareCards();
+ 	}
+ }
 
+function compareCards() {
+	if (openCards[0] === openCards[1]) {
+		setTimeout(cardMatch, 500);
+	} else {
+		setTimeout(cardNotMatch, 700);
+	}
 }
-// document.querySelectorAll('.card').addEventListener("click", cardOpen);
+
+function cardMatch() {
+	openCards = [];
+	for (let i = 0; i < cards.length; i++) {
+		if (cards[i].className == "card open show") {
+			cards[i].className = "card match";
+		}
+	}
+}
+
+function cardNotMatch() {
+	openCards = [];
+	for (let i = 0; i < cards.length; i++) {
+		if (cards[i].className == "card open show") {
+			cards[i].className = "card";
+		}
+	}
+}
