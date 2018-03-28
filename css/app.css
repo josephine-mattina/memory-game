@@ -18,7 +18,7 @@ body {
 
 body {
     background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -28,8 +28,8 @@ main {
     flex-direction: column;
 }
 
-h1 {
-    font-family: 'Open Sans', sans-serif;
+h1,
+h2 {
     font-weight: 300;
 }
 
@@ -86,16 +86,16 @@ h1 {
  */
 
 .score-panel {
+    font-family: 'Coda', cursive;
     text-align: left;
     width: 600px;
     margin-bottom: 10px;
 }
 
 .score-panel .stars {
-    margin: 0;
+    margin: 0 5px 0 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
@@ -104,6 +104,11 @@ h1 {
 }
 .score-panel .moves {
     margin-left: 20px;
+}
+
+.score-panel .timer {
+    margin: 0 0 0 20px;
+    display: inline-block;
 }
 
 .score-panel .restart {
@@ -115,14 +120,8 @@ h1 {
     outline: inherit;
     float: right;
     cursor: pointer;
-    margin-left: 30px;
 }
 
-.score-panel .timer {
-    margin: 0;
-    float: right;
-    display: inline-block;
-}
 
 /*
  * Styles for the Win Modal
@@ -145,14 +144,10 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
     text-align: center;
 }
 
 .win-modal .win-message h2 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
     font-size: 2em;
     text-align: center;
 }
@@ -172,14 +167,16 @@ h1 {
     border: none;
     outline: inherit;
     cursor: pointer;
-    padding: 0.8em 1.3em;
+    width: 120px;
+    padding: 0.8em;
     border-radius: 3px;
     background-color: #02b3e4;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 0.8em;
+    font-weight: 300;
+    font-size: 0.7em;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
     margin-top: 1em;
 }
 
@@ -208,14 +205,10 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
     text-align: center;
 }
 
 .lose-modal .lose-message h2 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
     font-size: 2em;
     text-align: center;
 }
@@ -224,14 +217,16 @@ h1 {
     border: none;
     outline: inherit;
     cursor: pointer;
-    padding: 0.8em 1.3em;
+    width: 120px;
+    padding: 0.8em;
     border-radius: 3px;
     background-color: #02b3e4;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 0.8em;
+    font-weight: 300;
+    font-size: 0.7em;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
     margin-top: 1em;
 }
 
@@ -239,3 +234,84 @@ h1 {
     background-color: #02ccba;
 }
 
+
+/* Mobile layout */
+
+@media screen and (max-width: 499px) {
+    .deck {
+        width: 300px;
+        min-height: 320px;
+        padding: 12px;
+        box-shadow: 6px 10px 15px 0 rgba(46, 61, 73, 0.5);
+    }
+
+    .deck .card {
+        height: 60px;
+        width: 60px;
+        box-shadow: 1px 0.5px 15px 0 rgba(46, 61, 73, 0.5);
+    }
+
+    .deck .card.show {
+        font-size: 20px;
+    }
+
+    .deck .card.match {
+        font-size: 20px;        
+    }
+    
+    .score-panel {
+        width: 280px;
+        font-size: 14px;
+    }
+
+    .score-panel .restart {
+        font-size: 20px;
+    }
+
+    .win-modal .win-message p {
+        font-size: 0.9em;
+        text-align: center;
+    }
+    
+    .win-modal .win-message button {
+        width: 250px;
+        font-size: 0.8em;
+    }
+
+    .lose-modal .lose-message button {
+        width: 250px;
+        font-size: 0.8em;
+    }
+}
+
+
+/* Tablet layout */
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+    .deck {
+        width: 450px;
+        min-height: 470px;
+        padding: 18px;
+    }
+
+    .deck .card {
+        height: 90px;
+        width: 90px;
+    }
+
+    .deck .card.show {
+        font-size: 25px;
+    }
+
+    .deck .card.match {
+        font-size: 25px;        
+    }
+
+    .score-panel {
+        width: 400px;
+    }
+
+    .score-panel .restart {
+        font-size: 20px;
+    }
+}
