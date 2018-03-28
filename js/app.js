@@ -138,10 +138,23 @@ function timer(event) {
 		counter++;
 		// stop timer on game win
 		if (document.getElementsByClassName('card match').length == 16){
-				clearInterval(timer);
-
+			clearInterval(timer);
+			gameWin();
 		}
 
 	}, 1000);
 }
+
+// winning modal
+const winModal = document.querySelector('.win-modal');
+const winTime = document.querySelector('.win-time');
+const winMessage = document.querySelector('.win-stats');
+
+function gameWin() {
+	winModal.style.display = "block";
+	winTime.innerHTML = timerText.innerHTML;
+	winMessage.innerHTML = "You won with " + moves.innerHTML + " moves and " + stars.length + " stars";
+}
+
+
 
