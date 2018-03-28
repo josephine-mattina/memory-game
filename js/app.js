@@ -11,7 +11,7 @@ const deck = document.querySelector('.deck');
  *   - add each card's HTML to the page
  */
 function makeCards() {
-	const shuffledCards = icons; //insert shuffle function shuffle(icons)
+	const shuffledCards = shuffle(icons); //insert shuffle function shuffle(icons)
 
 	for (let i = 0; i < shuffledCards.length; i++) {
 		const card = document.createElement("li");
@@ -114,9 +114,6 @@ function moveCounter() {
 	 	}
 }
 
-function gameOver() {
-	alert("GAME OVER!");
-}
 
 // timer
 const timerText = document.querySelector('.timer');
@@ -158,6 +155,15 @@ function gameWin() {
 	playAgain.addEventListener("click", restartGame);
 }
 
+// game over modal
+const loseModal = document.querySelector('.lose-modal');
+const tryAgain = document.querySelector('.try-again');
+
+function gameOver() {
+	loseModal.style.display = "block";
+	tryAgain.addEventListener("click", restartGame);
+}
+
 // restart game
 const reset = document.querySelector('.restart');
 reset.addEventListener("click", restartGame);
@@ -165,6 +171,3 @@ reset.addEventListener("click", restartGame);
 function restartGame() {
 	location.reload();
 }
-
-
-
