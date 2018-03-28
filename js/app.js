@@ -149,11 +149,21 @@ function timer(event) {
 const winModal = document.querySelector('.win-modal');
 const winTime = document.querySelector('.win-time');
 const winMessage = document.querySelector('.win-stats');
+const playAgain = document.querySelector('.play-again');
 
 function gameWin() {
 	winModal.style.display = "block";
 	winTime.innerHTML = timerText.innerHTML;
 	winMessage.innerHTML = "You won with " + moves.innerHTML + " moves and " + stars.length + " stars";
+	playAgain.addEventListener("click", restartGame);
+}
+
+// restart game
+const reset = document.querySelector('.restart');
+reset.addEventListener("click", restartGame);
+
+function restartGame() {
+	location.reload();
 }
 
 
