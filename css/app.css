@@ -18,7 +18,7 @@ body {
 
 body {
     background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 main {
@@ -86,7 +86,7 @@ h2 {
  */
 
 .score-panel {
-    font-family: 'Coda', cursive;
+    font-family: "Coda", cursive;
     text-align: left;
     width: 600px;
     margin-bottom: 10px;
@@ -102,6 +102,7 @@ h2 {
     list-style: none;
     display: inline-block;
 }
+
 .score-panel .moves {
     margin-left: 20px;
 }
@@ -121,7 +122,6 @@ h2 {
     float: right;
     cursor: pointer;
 }
-
 
 /*
  * Styles for the Win Modal
@@ -172,8 +172,8 @@ h2 {
     border-radius: 3px;
     background-color: #02b3e4;
     color: #fff;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
     font-size: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -222,8 +222,8 @@ h2 {
     border-radius: 3px;
     background-color: #02b3e4;
     color: #fff;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
     font-size: 0.7em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -234,8 +234,9 @@ h2 {
     background-color: #02ccba;
 }
 
-
-/* Mobile layout */
+/*
+ * Mobile layout
+ */
 
 @media screen and (max-width: 499px) {
     .deck {
@@ -256,9 +257,9 @@ h2 {
     }
 
     .deck .card.match {
-        font-size: 20px;        
+        font-size: 20px;
     }
-    
+
     .score-panel {
         width: 280px;
         font-size: 14px;
@@ -272,7 +273,7 @@ h2 {
         font-size: 0.9em;
         text-align: center;
     }
-    
+
     .win-modal .win-message button {
         width: 250px;
         font-size: 0.8em;
@@ -284,8 +285,9 @@ h2 {
     }
 }
 
-
-/* Tablet layout */
+/*
+ * Tablet layout
+ */
 
 @media screen and (min-width: 500px) and (max-width: 768px) {
     .deck {
@@ -304,7 +306,7 @@ h2 {
     }
 
     .deck .card.match {
-        font-size: 25px;        
+        font-size: 25px;
     }
 
     .score-panel {
