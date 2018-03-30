@@ -116,14 +116,16 @@ function timer(event) {
 		deck.removeEventListener('click', timer);
 	}
 	timer = setInterval(function() {
-		const minutes = ((counter / 60) | 0) + '';
-		const seconds = (counter % 60) + '';
-		const format = ''
-			+ new Array(3-minutes.length).join('0') + minutes
-			+ ':'
-			+ new Array(3-seconds.length).join('0') + seconds;
-		timerText.innerHTML = format;
 		counter++;
+		let m = ((counter / 60) | 0);
+		let s = counter % 60;
+		if (m < 10) {
+			m = '0' + m;
+		}
+		if (s < 10) {
+			s = '0' + s;
+		}
+		timerText.innerHTML = m + ':' + s;
 		if (document.getElementsByClassName('card match').length == 16) {
 			clearInterval(timer);
 			gameWin();
