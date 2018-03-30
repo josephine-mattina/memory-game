@@ -16,14 +16,14 @@ The board consists of a grid of 16 cards randomly shuffled and displayed face do
 
 The aim of the game is to match up all the symbol pairs.
 
-##### On each turn:
+#### On each turn:
 
 - The player clicks a card to reveal its symbol. 
 - The player clicks a second card, trying to find the corresponding card with the matching symbol.
 - If the cards match, both stay face up.
 - If the cards do not match, they display face down once again.
 
-##### Winning the game:
+#### Winning the game:
 
 When all the cards are correctly matched, a winning pop-up will appear to congratulate the player.
 
