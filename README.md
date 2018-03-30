@@ -1,17 +1,17 @@
 # Memory Game Project
----
 
-### Project Purpose
----
+
+## Project Purpose
+
 This game was built for a Udacity Javascript Course project. Its purpose is to demonstrate mastery of combining Javascript interactivity with static HTML and CSS.
 
 
-### How to load the game
----
-Clone the [repo] (URL HERE) and open index.html in a web browser.
+## How to load the game
 
-### How to play the game
----
+Clone the [repo](https://github.com/josephine-mattina/memory-game) and open index.html in a web browser.
+
+## How to play the game
+
 The board consists of a grid of 16 cards randomly shuffled and displayed face down. Each card in the deck has a symbol on one side. There are 8 pairs of symbols in the deck.
 
 The aim of the game is to match up all the symbol pairs.
@@ -27,8 +27,8 @@ The aim of the game is to match up all the symbol pairs.
 
 When all the cards are correctly matched, a winning pop-up will appear to congratulate the player.
 
-### Special features:
----
+## Special features:
+
 The game includes a **score panel** above the board which features:
 - A **star rating** of 3 stars. This rating will drop periodically the more moves it takes the player to complete the game.
 - The **number of moves** the player has taken so far.
@@ -39,8 +39,8 @@ The **winning** pop-up displays the star rating, number of moves made and the ti
 
 The game also features a **game over** pop-up which appears when the star rating becomes 0 stars. A message displays with a button to try again.
 
-### Resources used to build game:
----
+## Resources used to build game:
+
 **Array shuffle:**
 - http://stackoverflow.com/a/2450976
 
