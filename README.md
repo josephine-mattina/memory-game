@@ -46,6 +46,7 @@ The game also features a **game over** pop-up which appears when the star rating
 
 **Timer:**
 - https://www.w3schools.com/jsref/met_win_setinterval.asp
+- https://stackoverflow.com/questions/30747364/display-time-counter-in-terms-of-second-and-minutes
 
 **Modal pop ups:**
 - https://www.w3schools.com/howto/howto_css_modals.asp
