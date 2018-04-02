@@ -60,6 +60,7 @@ function cardOpen(event) {
 		event.target.className = 'card open show';
 	 	openCards.push(event.target.innerHTML);
 	 	if (openCards.length == 2) {
+	 		deck.removeEventListener('click', cardOpen);
 	 		compareCards();
 	 	}
 	 	moveCounter();
@@ -77,6 +78,7 @@ function cardMatch() {
 			cards[i].className = 'card match';
 		}
 	}
+	deck.addEventListener('click', cardOpen);
 }
 
 function cardNotMatch() {
@@ -86,6 +88,7 @@ function cardNotMatch() {
 			cards[i].className = 'card';
 		}
 	}
+	deck.addEventListener('click', cardOpen);
 }
 
 // Move counter
