@@ -55,51 +55,72 @@ function shuffle(array) {
 }
 
 // Display card symbol on click
-let openCards = [];
 const cards = deck.getElementsByTagName('li');
 
 function cardOpen(event) {
-	if (event.target.nodeName == 'LI') {
-		event.target.className = 'card open show';
-	 	// Add clicked cards to 'open cards' array for comparison
-	 	openCards.push(event.target.innerHTML);
-	 	if (openCards.length == 2) {
-	 		// Remove click listeners to compare 'open cards'
-	 		deck.removeEventListener('click', cardOpen);
-	 		compareCards();
-	 	}
-	 	// Update move count
-	 	moveCounter();
+	// Ensure matched cards are no longer clickable
+	if (event.target.className == 'card match') {
+		// Do nothing
+	} else if (event.target.nodeName == 'LI') {
+		// Check how many cards in deck are open
+		let countOpen = 0;
+		for (let i = 0; i < cards.length; i++) {
+			if (cards[i].className == 'card open show') {
+				countOpen += 1;
+			}
+		}
+		// Open card on first click
+		if (countOpen < 1) {
+			event.target.className = 'card open show';
+		// Open card on second click
+		} else if (countOpen == 1) {
+			// Update move count for first click
+			moveCounter();
+			// Prevent same card being clicked more than once in a turn
+		 	if (event.target.className == 'card open show') {
+		 		//Do nothing
+		 	} else {
+		 		event.target.className = 'card open show';
+		 		// Compare the cards clicked
+		 		compareCards();
+			}
+			// Update move count for second click
+			setTimeout(moveCounter, 500);
+		}
 	}
- }
+}
 
 // Check for card matching
 function compareCards() {
-	openCards[0] === openCards[1] ? setTimeout(cardMatch, 500) : setTimeout(cardNotMatch, 700);
+	let chosenCard = '';
+	for (let i = 0; i < cards.length; i++) {
+		if (cards[i].className == 'card open show' && chosenCard == '') {
+			chosenCard = cards[i].innerHTML;
+		} else if (cards[i].className == 'card open show' && chosenCard !== '') {
+			if (chosenCard == cards[i].innerHTML) {
+				setTimeout(cardMatch, 500);
+			}
+		}
+	}
+	setTimeout(cardNotMatch, 700);
 }
 
-// Card matching 
+// Card matching
 function cardMatch() {
-	openCards = [];
 	for (let i = 0; i < cards.length; i++) {
 		if (cards[i].className == 'card open show') {
 			cards[i].className = 'card match';
 		}
 	}
-	// Replace click listeners on cards
-	deck.addEventListener('click', cardOpen);
 }
 
 // Card not matching
 function cardNotMatch() {
-	openCards = [];
 	for (let i = 0; i < cards.length; i++) {
 		if (cards[i].className == 'card open show') {
 			cards[i].className = 'card';
 		}
 	}
-	// Replace click listeners on cards
-	deck.addEventListener('click', cardOpen);
 }
 
 // Update move count and star rating
