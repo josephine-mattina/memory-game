@@ -72,10 +72,10 @@ function cardOpen(event) {
 		// Open card on first click
 		if (countOpen < 1) {
 			event.target.className = 'card open show';
-		// Open card on second click
-		} else if (countOpen == 1) {
 			// Update move count for first click
 			moveCounter();
+		// Open card on second click
+		} else if (countOpen == 1) {
 			// Prevent same card being clicked more than once in a turn
 		 	if (event.target.className == 'card open show') {
 		 		//Do nothing
@@ -85,7 +85,7 @@ function cardOpen(event) {
 		 		compareCards();
 			}
 			// Update move count for second click
-			setTimeout(moveCounter, 500);
+			moveCounter();
 		}
 	}
 }
